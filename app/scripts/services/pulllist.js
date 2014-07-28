@@ -20,7 +20,7 @@ angular.module('pullyApp')
         return pully.mock.getPullList();
       }else{
         return [
-
+          //TODO: fetch pull list from DB
         ];
       }
     };

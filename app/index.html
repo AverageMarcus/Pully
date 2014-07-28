@@ -22,13 +22,35 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" ng-controller="MainCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
+          <li class="active"><a ng-href="/">Home</a></li>
+          <li><a ng-href="/about">About</a></li>
+          <li>
+            <a ng-click="toggleSearch()" ng-href="#">
+              <span class="glyphicon glyphicon-plus"></span> Add Series
+            </a>
+          </li>
+          <li ng-show="showSearch" class="animate-search">
+            <input id="searchBox" type="text" class="form-control input-lg" ng-model="searchQuery" ng-keyup="search($event)" placeholder="Search" />
+          </li>
         </ul>
         <h3 class="text-muted">Pully</h3>
+      </div>
+
+      <div class="panel panel-success ng-hide" ng-show="searchResults">
+        <div class="panel-heading">
+          Results for '{{ searchResults.searchQuery }}'
+          <span class="close pull-right glyphicon glyphicon-remove" ng-click="clearResults()"></span>
+        </div>
+        <div class="panel-body">
+          <ul ng-repeat="result in searchResults.results">
+            <li>
+              {{ result }}
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div ng-view=""></div>
@@ -51,14 +73,15 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -70,6 +93,7 @@
     <script src="scripts/services/pulllist.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/services/comicvineapi.js"></script>
     <!-- endbuild -->
 </body>
 </html>

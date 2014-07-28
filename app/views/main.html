@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="col-md-12 text-right">
-    Filter: <input type="text" ng-model="filter"/>
+  <div class="col-md-12 text-right form-inline">
+    <label>Filter:</label>
+    <input type="text" ng-model="filter" class="form-control input-sm" />
   </div>
 </div>
 
@@ -14,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pull in pulls | orderBy: sortBy | filter: filter">
+    <tr ng-repeat="pull in pulls | orderBy: sortBy | filter: filter" ng-click="comicDetails()">
       <td>{{ pull.series }}</td>
       <td>{{ pull.publisher }}</td>
       <td>{{ pull.issues }}</td>

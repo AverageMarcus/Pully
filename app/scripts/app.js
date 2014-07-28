@@ -14,19 +14,27 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngAnimate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: '/views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/comic-details/:id', {
+        templateUrl: '/views/about.html',
         controller: 'AboutCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .config(function ($locationProvider) {
+    $locationProvider.html5Mode(true);
   });

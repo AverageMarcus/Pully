@@ -1,3 +1,7 @@
 .pull-list th {
   cursor: pointer;
 }
+
+.pull-list tr {
+  cursor: pointer;
+}

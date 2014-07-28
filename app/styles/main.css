@@ -81,3 +81,18 @@ body {
     border-bottom: 0;
   }
 }
+
+.close {
+  cursor:pointer;
+}
+
+.animate-search {
+  -webkit-transition:all linear .5s;
+  transition:all linear .5s;
+  width:200px;
+  opacity:1;
+}
+.animate-search.ng-hide {
+  width:0;
+  opacity:0;
+}
