@@ -8,6 +8,14 @@
  * Controller of the pullyApp
  */
 angular.module('pullyApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', 'Pulllist', function ($scope, pullist) {
+    $scope.pulls = pullist.getPullList();
+    $scope.sortBy = 'series';
 
-  });
+    $scope.sort = function(sortBy){
+      if($scope.sortBy === sortBy){
+        sortBy = '-' + sortBy;
+      }
+      $scope.sortBy = sortBy;
+    };
+  }]);

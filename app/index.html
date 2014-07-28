@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/pulllist.css">
     <!-- endbuild -->
   </head>
   <body ng-app="pullyApp">
@@ -34,7 +35,7 @@
 
       <div class="footer">
         <p class="text-right">
-          <span class="glyphicon glyphicon-heart"></span> from <a href="https://www.twitter.com/Marcus_Noble_" target="_blank">@Marcus_Noble_</a>
+          Made with <span class="glyphicon glyphicon-heart"></span> by <a href="https://www.twitter.com/Marcus_Noble_" target="_blank">@Marcus_Noble_</a>
         </p>
       </div>
     </div>
@@ -62,7 +63,11 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/config.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/mock.js"></script>
+    <script src="scripts/models/Comic.js"></script>
+    <script src="scripts/services/pulllist.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <!-- endbuild -->
