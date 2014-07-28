@@ -2,7 +2,7 @@
 
 var pully = pully || {};
 
-(function(){
+pully.mock = function(){
 
   var mockPullList = function(){
     var comics = [
@@ -14,6 +14,7 @@ var pully = pully || {};
     return comics;
   };
 
-  pully.getPullList = mockPullList;
-
-}());
+  return {
+    getPullList : mockPullList
+  };
+}();

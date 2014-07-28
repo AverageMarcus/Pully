@@ -14,13 +14,15 @@ angular.module('pullyApp')
     //Ensure models are loaded
     if(typeof pully.Comic === 'undefined'){ throw 'Comic model not found.'; }
 
-    var getPullList = function(){
-      return [
-        new pully.Comic('Deadpool', 'Marvel', 15),
-        new pully.Comic('Captain America', 'Marvel', 4),
-        new pully.Comic('Avengers, The', 'Marvel', 24),
-        new pully.Comic('Saga', 'Image', 15)
-      ];
+    var getPullList = function getPullList(){
+
+      if(pully.config && pully.config.environment === 'dev'){
+        return pully.mock.getPullList();
+      }else{
+        return [
+
+        ];
+      }
     };
 
     return {
