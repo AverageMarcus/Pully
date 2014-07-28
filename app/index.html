@@ -22,11 +22,11 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-controller="MainCtrl">
+    <div class="container" ng-controller="SearchCtrl">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="/">Home</a></li>
-          <li><a ng-href="/about">About</a></li>
+          <li class="active"><a ng-href="#/">Home</a></li>
+          <li><a ng-href="#/about">About</a></li>
           <li>
             <a ng-click="toggleSearch()" ng-href="#">
               <span class="glyphicon glyphicon-plus"></span> Add Series
@@ -45,11 +45,30 @@
           <span class="close pull-right glyphicon glyphicon-remove" ng-click="clearResults()"></span>
         </div>
         <div class="panel-body">
-          <ul ng-repeat="result in searchResults.results">
-            <li>
-              {{ result }}
-            </li>
-          </ul>
+          <div class="row">
+            <div class="col-md-12 text-right form-inline">
+              <label>Filter:</label>
+              <input type="text" ng-model="resultsFilter" class="form-control input-sm" />
+            </div>
+          </div>
+          <table class="results-table table table-hover">
+            <thead>
+              <tr>
+                <th ng-click="sort('name')" class="col-sm-5">Series</th>
+                <th ng-click="sort('publisher.name')" class="col-sm-4">Publisher</th>
+                <th ng-click="sort('start_year')" class="col-sm-2">Start Year</th>
+                <th class="col-sm-1">&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="result in searchResults.results | orderBy: sortBy | filter: resultsFilter">
+                <td>{{ result.name }}</td>
+                <td>{{ result.publisher.name }}</td>
+                <td>{{ result.start_year }}</td>
+                <td><a ng-click="addComic({{result.id}})" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -94,6 +113,8 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/services/comicvineapi.js"></script>
+    <script src="scripts/controllers/comicdetails.js"></script>
+    <script src="scripts/controllers/search.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -96,3 +96,8 @@ body {
   width:0;
   opacity:0;
 }
+
+
+.results-table th {
+  cursor: pointer;
+}

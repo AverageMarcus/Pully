@@ -10,15 +10,15 @@
     <tr>
       <th ng-click="sort('series')" class="col-sm-5">Series</th>
       <th ng-click="sort('publisher')" class="col-sm-3">Publisher</th>
-      <th ng-click="sort('issues')" class="col-sm-2"># of Issues</th>
+      <th ng-click="sort('issues')" class="col-sm-2">Start Year</th>
       <th ng-click="sort('created')" class="col-sm-2">Added</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pull in pulls | orderBy: sortBy | filter: filter" ng-click="comicDetails()">
+    <tr ng-repeat="pull in pulls | orderBy: sortBy | filter: filter" ng-click="comicDetails(pull.series)">
       <td>{{ pull.series }}</td>
       <td>{{ pull.publisher }}</td>
-      <td>{{ pull.issues }}</td>
+      <td>{{ pull.startYear }}</td>
       <td>{{ pull.created | date: shortDate }}</td>
     </tr>
   </tbody>

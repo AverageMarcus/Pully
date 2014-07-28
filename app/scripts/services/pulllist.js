@@ -13,6 +13,7 @@ angular.module('pullyApp')
   .service('Pulllist', function Pulllist() {
     //Ensure models are loaded
     if(typeof pully.Comic === 'undefined'){ throw 'Comic model not found.'; }
+    var pullList = [];
 
     var getPullList = function getPullList(){
 
@@ -25,7 +26,14 @@ angular.module('pullyApp')
       }
     };
 
+    var addComic = function addComic(comic){
+      pullList.push(comic);
+    };
+
+    pullList = getPullList();
+
     return {
-      getPullList: getPullList
+      pullList : pullList,
+      addComic : addComic
     };
   });

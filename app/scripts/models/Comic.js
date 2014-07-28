@@ -2,10 +2,11 @@
 
 var pully = pully || {};
 
-pully.Comic = function(Series, Publisher, Issues){
+pully.Comic = function(Id, Series, Publisher, StartYear){
+  this.id = Id;
   this.series = Series;
   this.publisher = Publisher;
-  this.issues = Issues;
+  this.startYear = StartYear;
   this.created = new Date();
 };
 

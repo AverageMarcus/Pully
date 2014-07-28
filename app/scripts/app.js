@@ -28,13 +28,10 @@ angular
         controller: 'AboutCtrl'
       })
       .when('/comic-details/:id', {
-        templateUrl: '/views/about.html',
-        controller: 'AboutCtrl'
+        templateUrl: '/views/comic-details.html',
+        controller: 'ComicDetailsCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
-  })
-  .config(function ($locationProvider) {
-    $locationProvider.html5Mode(true);
   });
