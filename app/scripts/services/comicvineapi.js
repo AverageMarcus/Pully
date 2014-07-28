@@ -15,7 +15,7 @@ angular.module('pullyApp')
 
       $http({
         method: 'JSONP',
-        url: 'http://beta.comicvine.com/api/search/?api_key='+pully.config.comic_vine_api_key+'&query='+searchQuery+'&resources=volume&field_list=name,publisher,start_year,id&format=jsonp&json_callback=JSON_CALLBACK'
+        url: 'http://beta.comicvine.com/api/search/?api_key='+pully.config.comic_vine_api_key+'&query='+searchQuery+'&resources=volume&field_list=name,publisher,start_year,id,site_detail_url&format=jsonp&json_callback=JSON_CALLBACK'
       })
       .success(function(data, status, headers, config) {
         if(data.error === 'OK'){

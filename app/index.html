@@ -62,7 +62,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="result in searchResults.results | orderBy: sortBy | filter: resultsFilter">
-                <td>{{ result.name }}</td>
+                <td><a href="{{result.site_detail_url}}" target="_blank">{{ result.name }}</a></td>
                 <td>{{ result.publisher.name }}</td>
                 <td>{{ result.start_year }}</td>
                 <td><a ng-click="addComic({{result.id}})" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add</a></td>
@@ -80,7 +80,6 @@
         </p>
       </div>
     </div>
-
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
